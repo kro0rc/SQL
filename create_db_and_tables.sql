@@ -1,0 +1,32 @@
+USE master;
+GO
+
+CREATE DATABASE foxmindedDB;
+GO
+
+USE foxmindedDB;
+CREATE TABLE COURSES 
+	(
+		course_id INT NOT NULL PRIMARY KEY IDENTITY (1, 1), 
+		name VARCHAR(50), 
+		description VARCHAR(200)
+	)
+
+CREATE TABLE GROUPS 
+	(
+		group_id INT NOT NULL PRIMARY KEY IDENTITY (1, 1), 
+		course_id INT NOT NULL FOREIGN KEY REFERENCES COURSES(course_id), 
+		name VARCHAR(50) NOT NULL
+	)
+
+CREATE TABLE STUDENTS 
+	(
+		student_id int NOT NULL IDENTITY(1, 1), 
+		group_id INT NOT NULL FOREIGN KEY REFERENCES GROUPS(group_id), 
+		first_name VARCHAR(50) NOT NULL, 
+		last_name VARCHAR(50) NOT NULL
+	);
+
+;
+
+;
