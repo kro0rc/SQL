@@ -1,7 +1,7 @@
 use foxmindedDB;
 
-SELECT DISTINCT *
-FROM students AS s
-LEFT JOIN GROUPS AS g ON s.group_id = g.group_id
-JOIN COURSES AS c ON g.course_id = c.course_id
+SELECT c.name, s.first_name, s.last_name
+FROM courses AS c
+JOIN GROUPS AS g ON c.course_id = g.course_id
+JOIN STUDENTS AS s ON g.group_id = s.group_id
 ORDER BY c.name;
